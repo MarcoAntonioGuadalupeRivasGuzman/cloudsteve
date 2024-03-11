@@ -28,7 +28,7 @@ const multerUpload = multer({
 
 app.use('/public', express.static('./uploads'))
 
-app.listen(3300)
+app.listen(3300,'192.168.0.163')
 
 app.post('/upload',multerUpload.single('file'),(req,res) =>{
     console.log(req.file)
