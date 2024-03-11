@@ -26,6 +26,8 @@ const multerUpload = multer({
     }
 });
 
+app.use('/public', express.static('/media/steve/cloudsteve/uploads'))
+
 app.listen(3300)
 
 app.post('/upload',multerUpload.single('file'),(req,res) =>{
