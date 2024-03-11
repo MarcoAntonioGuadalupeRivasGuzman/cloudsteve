@@ -10,7 +10,7 @@ const app = express();
 const multerUpload = multer({
     storage: multer.diskStorage({
         //destination: join(currentDir, '../uploads'),
-        destination: '/media/steve/cloudsteve/uploads',
+        destination: './uploads',
         filename: (req,file,cb)=>{
             const fielExtension = extname(file.originalname)
             const fileName = file.originalname.split(fielExtension)[0];
@@ -26,7 +26,7 @@ const multerUpload = multer({
     }
 });
 
-app.use('/public', express.static('/media/steve/cloudsteve/uploads'))
+app.use('/public', express.static('./uploads'))
 
 app.listen(3300)
 
