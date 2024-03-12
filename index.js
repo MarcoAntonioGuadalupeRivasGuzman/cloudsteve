@@ -32,7 +32,6 @@ app.listen(3300,'192.168.0.163')
 
 app.post('/upload',multerUpload.single('file'),(req,res) =>{
     console.log(req.file)
-
     res.sendStatus(200)
 });
 
