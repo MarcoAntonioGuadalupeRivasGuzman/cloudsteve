@@ -1,7 +1,8 @@
-import express from 'express'
+import express, { Router } from 'express'
 import multer from 'multer'
 import { dirname, extname, join } from 'path'
 import { fileURLToPath } from 'url'
+import { filesRoutes } from './routes/filesRoutes.js'
 
 const currentDir = dirname(fileURLToPath(import.meta.url))
 const tipos=["image/jpeg","image/png"]
@@ -34,6 +35,8 @@ app.post('/upload',multerUpload.single('file'),(req,res) =>{
     console.log(req.file)
     res.sendStatus(200)
 });
+
+app.use(filesRoutes);
 
 console.log('Sever runing on port 3000')
 console.log('Happy Hacking')
